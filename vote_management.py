@@ -33,11 +33,21 @@ def projects():
 
     result = []
     for project_id, name, logo_key in rows:
-        logo_url = s3.generate_presigned_url(
-            "get_object",
-            Params={"Bucket": BUCKET, "Key": logo_key},
-            ExpiresIn=3600
-        )
+        logo_url = None
+
+        if logo_key:
+            logo_url = s3.generate_presigned_url(
+                "get_object",
+                Params={"Bucket": BUCKET, "Key": logo_key},
+                ExpiresIn=3600
+            )
+
+        result.append({
+            "id": project_id,
+            "name": name,
+            "logo_url": logo_url
+        })
+
         result.append({
             "id": project_id,
             "name": name,
