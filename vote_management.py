@@ -48,12 +48,6 @@ def projects():
             "logo_url": logo_url
         })
 
-        result.append({
-            "id": project_id,
-            "name": name,
-            "logo_url": logo_url
-        })
-
     cur.close()
     conn.close()
     return jsonify(result)
