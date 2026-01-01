@@ -13,8 +13,8 @@ DB_CONFIG = {
     "password": "votre_mot_de_passe"
 }
 
-AWS_REGION = "votre-region"
-BUCKET = "cloudvote-logos"
+AWS_REGION = "eu-north-1"
+BUCKET = "first-bucket-project-2025"
 
 s3 = boto3.client("s3", region_name=AWS_REGION)
 
